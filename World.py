@@ -6,17 +6,17 @@ triangle_size = 0.1
 cell_score_min = -0.2
 cell_score_max = 0.2
 Width = 100
-(x, y) = (5, 5)
+(x, y) = (10, 10)
 actions = ["up", "down", "left", "right"]
 
 board = Canvas(master, width=x*Width, height=y*Width)
-player = (0, y-1)
+player = (4, y-2)
 score = 1
 restart = False
 walk_reward = -0.04
 
-walls = [(1, 1), (1, 2), (2, 1), (2, 2)]
-specials = [(4, 1, "red", -1), (4, 0, "green", 1)]
+walls = [(1, 1), (2, 1), (2, 2), (2, 3), (3, 3), (4, 3), (4, 2), (4, 1), (6, 5), (7, 1), (7, 2), (8, 1), (8, 2),  (3, 5), (4, 5), (4, 6), (4, 7), (5, 5)]
+specials = [(9, 9, "red", -1), (0, 0, "green", 5), (9, 2, "red", -1), (0, 1, "red", -1),(3, 2, "green", 3),(9, 1, "green", 5) ]
 cell_scores = {}
 
 
@@ -115,7 +115,7 @@ def call_right(event):
 
 def restart_game():
     global player, score, me, restart
-    player = (0, y-1)
+    player = (4, y-2)
     score = 1
     restart = False
     board.coords(me, player[0]*Width+Width*2/10, player[1]*Width+Width*2/10, player[0]*Width+Width*8/10, player[1]*Width+Width*8/10)
